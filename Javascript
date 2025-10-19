@@ -66,7 +66,7 @@ uyari("primary","Başarıyla silindi")
 
 sifirla.addEventListener("click",tumunusil)
 input.addEventListener("keydown",enter)
-document.addEventListener("keydown",silbackspace)
+document.addEventListener("keydown",esc)
 document.addEventListener("keydown",tumlisteyisildel)
 
 
@@ -83,8 +83,8 @@ uyari("danger","silmek için todo olması gerekli")
 }}
 
 
-function silbackspace (e){
-if(e.key == "Backspace"){
+function esc (e){
+if(e.key == "Escape"){
 const ensoneklenenli = giris.lastElementChild
 if(ensoneklenenli !== null){
 ensoneklenenli.remove()
@@ -107,31 +107,20 @@ giris.innerHTML=""
 }}}
 
 
+const filterInput = document.querySelector("#tarama");
 
+function filtrele(){
+  const filterValue = filterInput.value.toLowerCase();
+  const liList = giris.querySelectorAll("li");
 
+  liList.forEach(function(li){
+    const text = li.firstChild.nodeValue.toLowerCase();
+    if(text.indexOf(filterValue) !== -1){
+      li.style.display = ""; 
+    } else {
+      li.style.display = "none"; 
+    }
+  });
+}
 
-  // <li class="list-group-item">Cras justo odio <i class="fa-solid fa-xmark" style="float: right; margin-top: 5px;"></i> </li> 
-  // <li class="list-group-item">Dapibus ac facilisis in <i class="fa-solid fa-xmark" style="float: right; margin-top: 5px;"></i>  </li>
-  // <li class="list-group-item">Morbi leo risus <i class="fa-solid fa-xmark" style="float: right; margin-top: 5px;"></i>  </li>
-  // <li class="list-group-item">Porta ac consectetur ac <i class="fa-solid fa-xmark" style="float: right; margin-top: 5px;"></i> </li>
-  // <li class="list-group-item">Vestibulum at eros <i class="fa-solid fa-xmark" style="float: right; margin-top: 5px;"></i>  </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+filterInput.addEventListener("keyup", filtrele);
