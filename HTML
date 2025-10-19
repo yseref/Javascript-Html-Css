@@ -1,1 +1,45 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo Uygulaması</title>
+  <link href="resim.jpg" rel="icon"  >
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</head>
+<body>
 
+<h3 style="margin-top: 50px; margin-left: 10px; " ><b> Sitemize Hoş Geldiniz </b></h3>
+
+<div class="input-group mb-4" style="margin-top: 50px; width: 500px; margin-left: 10px;" >
+  <input   id="input" type="text" class="form-control" placeholder="Todo giriniz" aria-label="Recipient's username" aria-describedby="basic-addon2">
+  <div class="input-group-append">
+    <button id= "buton" class="btn btn-outline-secondary" type="submit" style="margin-left: 20px;">kaydet</button>
+  </div>
+</div>
+
+<div id="uyari">
+
+
+</div>
+<hr>
+<br>
+
+<div class="input-group mb-5 mt-sm" style="width: 500px; margin-left: 10px;">
+  <input type="text" class="form-control" placeholder="aradığınız todonun ismini yazınız" aria-label="Recipient's username" aria-describedby="basic-addon2">
+  <div class="input-group-append">
+    <br>
+
+  </div>
+  </div>
+  <div>
+   <ul class="list-group" style="width: 500px; margin-left: 10px;"></ul>
+</div>
+<button type="reset" id="sifirla" class="btn btn-dark" style="margin-left: 10px; width: 100px; margin-top: 40px;">Sıfırla</button>
+<button type="button" id="kaydet"  class="btn btn-outline-dark" style="margin-left: 10px; width: 100px; margin-top: 40px;">Kaydet</button>
+<hr>
+<footer style="text-align: center; margin-top: 100px;">Yiğit Şeref Damlacı</footer>
+<script src="app.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</body>
+</html>
