@@ -1,0 +1,137 @@
+
+const buton = document.querySelector("#buton")
+const input = document.querySelector("#input")
+const div2 =document.querySelectorAll ("#uyari")[0]
+const giris = document.querySelector(".list-group")
+const sifirla = document.querySelector("#sifirla")
+const kaydet = document.querySelector("#kaydet")
+
+function ekle(e){
+      e.preventDefault()
+const inputyazi = input.value.trim()
+if(inputyazi == "" || inputyazi == null){
+uyari("warning","Lütfen bir TO-DO giriniz")
+}else{
+girisiekle(inputyazi)
+
+}
+
+
+}
+
+
+function uyari(tip,mesaj){
+const div = document.createElement("div")
+div.style.width = "300px"
+div.style.marginLeft = "10px"
+div.style.borderRadius = "5px"
+div.className = "alert alert-"+tip
+div.textContent = mesaj
+div2.appendChild(div)
+setTimeout(function(){
+  div.remove()
+}, 2500);
+}
+
+  
+
+olaylar()
+
+function olaylar(){
+  buton.addEventListener("click",ekle)  
+}
+
+
+
+
+function girisiekle(){
+  const li = document.createElement("li")
+li.className = "list-group-item"
+li.textContent = input.value.trim()
+const i = document.createElement("i")
+i.className = "fa-solid fa-xmark"
+i.style.float = "right"
+i.style.marginTop = "3px"
+li.appendChild(i)
+giris.appendChild(li)
+input.value = ""
+i.addEventListener("click",sil)
+function sil(){
+li.remove()
+uyari("primary","Başarıyla silindi")
+}}
+
+
+
+
+sifirla.addEventListener("click",tumunusil)
+input.addEventListener("keydown",enter)
+document.addEventListener("keydown",silbackspace)
+document.addEventListener("keydown",tumlisteyisildel)
+
+
+
+function tumunusil (e){
+e.preventDefault()
+const ensoneklenenli = giris.lastElementChild
+if(ensoneklenenli !== null){
+giris.innerHTML = ""
+uyari("success","Hepsi silindi")
+}else{
+uyari("danger","silmek için todo olması gerekli")
+
+}}
+
+
+function silbackspace (e){
+if(e.key == "Backspace"){
+const ensoneklenenli = giris.lastElementChild
+if(ensoneklenenli !== null){
+ensoneklenenli.remove()
+uyari("success","Başarıyla silindi")
+}else{
+uyari("primary","silmek için bir değer olmalı")
+}}}
+function enter (e){
+if (e.key == "Enter") {ekle(e)
+}}
+
+
+function tumlisteyisildel (e){
+if (e.key == "Delete"){
+if(giris.children.length === 0)
+  { uyari ("warning","zaten boş")}
+else{
+giris.innerHTML=""
+ uyari ("warning","hepsi silindi")
+}}}
+
+
+
+
+
+  // <li class="list-group-item">Cras justo odio <i class="fa-solid fa-xmark" style="float: right; margin-top: 5px;"></i> </li> 
+  // <li class="list-group-item">Dapibus ac facilisis in <i class="fa-solid fa-xmark" style="float: right; margin-top: 5px;"></i>  </li>
+  // <li class="list-group-item">Morbi leo risus <i class="fa-solid fa-xmark" style="float: right; margin-top: 5px;"></i>  </li>
+  // <li class="list-group-item">Porta ac consectetur ac <i class="fa-solid fa-xmark" style="float: right; margin-top: 5px;"></i> </li>
+  // <li class="list-group-item">Vestibulum at eros <i class="fa-solid fa-xmark" style="float: right; margin-top: 5px;"></i>  </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
