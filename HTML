@@ -9,6 +9,25 @@
 </head>
 <body>
 
+  <style>
+.list-group-item {
+  transition: background-color 0.5s ease;
+  cursor: pointer;
+}
+
+.list-group-item:hover {
+  background-color: black;
+  color: #ffff;
+}
+
+.list-group-item i:hover {
+  color: red;
+  cursor: pointer;
+}
+
+
+  </style>
+
 <h3 style="margin-top: 50px; margin-left: 10px; " ><b> Sitemize Hoş Geldiniz </b></h3>
 
 <div class="input-group mb-4" style="margin-top: 50px; width: 500px; margin-left: 10px;" >
@@ -26,7 +45,7 @@
 <br>
 
 <div class="input-group mb-5 mt-sm" style="width: 500px; margin-left: 10px;">
-  <input type="text" class="form-control" placeholder="aradığınız todonun ismini yazınız" aria-label="Recipient's username" aria-describedby="basic-addon2">
+  <input type="text" id="tarama" class="form-control" placeholder="Aradığınız todonun ismini yazınız" aria-label="Recipient's username" aria-describedby="basic-addon2">
   <div class="input-group-append">
     <br>
 
@@ -36,7 +55,6 @@
    <ul class="list-group" style="width: 500px; margin-left: 10px;"></ul>
 </div>
 <button type="reset" id="sifirla" class="btn btn-dark" style="margin-left: 10px; width: 100px; margin-top: 40px;">Sıfırla</button>
-<button type="button" id="kaydet"  class="btn btn-outline-dark" style="margin-left: 10px; width: 100px; margin-top: 40px;">Kaydet</button>
 <hr>
 <footer style="text-align: center; margin-top: 100px;">Yiğit Şeref Damlacı</footer>
 <script src="app.js"></script>
